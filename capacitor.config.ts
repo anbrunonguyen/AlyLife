@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.alylife.v2',
+  appId: 'com.alylife.aly',
   appName: 'AlyLife',
   webDir: 'www',
   bundledWebRuntime: false,

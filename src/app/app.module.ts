@@ -29,7 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot({
       name: '__mydb',
-      driverOrder: ['sqlite', 'websql'],
     }),
     AppRoutingModule,
     FormsModule,
