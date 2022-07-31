@@ -1,0 +1,81 @@
+<div class="overlay" (click)="hideForm()" #overlay>
+  <div
+    class="form-container magictime slideDownReturn"
+    (click)="onFormClicked($event)"
+    #formContainer
+  >
+    <form
+      class="add-money-form"
+      [formGroup]="formControl"
+      (submit)="onSubmit()"
+    >
+      <div class="input-container" *ngIf="isAddStock">
+        <div class="icon"><img src="assets/icon/stock-code.svg" alt="" /></div>
+        <div class="input">
+          <mat-form-field>
+            <mat-label>Mã cổ phiếu</mat-label>
+            <input
+              matInput
+              placeholder="Vd: HPG"
+              formControlName="code"
+              required
+              type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-container" *ngIf="isAddStock">
+        <div class="icon"><img src="assets/icon/stock-price.svg" alt="" /></div>
+        <div class="input">
+          <mat-form-field>
+            <mat-label>Giá</mat-label>
+            <input
+              matInput
+              placeholder="Vd: 100000"
+              formControlName="startPrice"
+              required
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-container" *ngIf="isAddStock">
+        <div class="icon">
+          <img src="assets/icon/stock-volume.svg" alt="" />
+        </div>
+        <div class="input">
+          <mat-form-field>
+            <mat-label>Số lượng</mat-label>
+            <input
+              matInput
+              placeholder="Vd: 100000"
+              formControlName="volume"
+              required
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-container" *ngIf="isAddStock">
+        <div class="icon">
+          <img src="assets/icon/loan.svg" alt="" />
+        </div>
+        <div class="input">
+          <mat-form-field>
+            <mat-label>Margin</mat-label>
+            <input
+              matInput
+              placeholder="Vd: 100000"
+              formControlName="margin"
+              type="number"
+              value="0"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button alyTouchReact class="aly-btn" type="submit">Thêm</button>
+      </div>
+    </form>
+  </div>
+</div>

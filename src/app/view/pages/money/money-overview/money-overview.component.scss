@@ -1,0 +1,47 @@
+@import '../../../../core/shared/scss/shared';
+
+.money-overview-container {
+  overflow: hidden;
+  padding-top: 15px;
+  .pick-month {
+    input {
+      display: none;
+    }
+    box-shadow: none;
+    div {
+      display: flex;
+      align-items: center;
+    }
+  }
+  p {
+    font-weight: bold;
+  }
+
+  span {
+    float: right;
+  }
+
+  .income-progress,
+  .outcome-progress {
+    box-shadow: none;
+    background: $main-color;
+    margin: 10px 0;
+    animation: fadeInUp 0.5s;
+  }
+
+  .incomeColorUp {
+    color: #07ca2c;
+  }
+
+  .incomeColorUper {
+    color: $ceil-color;
+  }
+
+  .outcomeColorUp {
+    color: $floor-color;
+  }
+
+  .outcomeColorDown {
+    color: #ca0d0d;
+  }
+}

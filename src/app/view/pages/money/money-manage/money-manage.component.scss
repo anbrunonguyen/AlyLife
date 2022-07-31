@@ -1,0 +1,32 @@
+@import '../../../../core/shared/scss/shared';
+
+aly-wallet-detail {
+  width: 100%;
+}
+
+.add-money {
+  position: fixed;
+  z-index: 999;
+  bottom: 20px;
+  right: 15px;
+  border-radius: 50%;
+  padding: 5px;
+  background: rgba(187, 189, 194, 0.685);
+  width: 58px;
+  height: 58px;
+  box-shadow: $card-box-shadow;
+}
+
+.wallet-hint {
+  text-align: center;
+  background: linear-gradient(90deg, #f7efef, rgb(39, 35, 35), #f7efef);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shining 3s linear infinite;
+  background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+h5 {
+  font-style: italic;
+}

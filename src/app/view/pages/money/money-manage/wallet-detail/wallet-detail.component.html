@@ -1,0 +1,21 @@
+<div class="aly-card wallet-card" alyTouchReact>
+  <div class="first-line">
+    <h2>{{ wallet.name }}</h2>
+    <h1>{{ wallet.currentBalance | number }}</h1>
+  </div>
+
+  <div class="detail">
+    <p *ngIf="wallet.loan">{{ wallet.loan | number }}</p>
+    <p *ngIf="wallet.margin">{{ wallet.margin | number }}</p>
+
+    <!-- <p>{{ wallet.detail }}</p> -->
+    <div class="in-out">
+      <div class="in">
+        <p>{{ income | number }}</p>
+      </div>
+      <div class="out">
+        <p>{{ outcome | number }}</p>
+      </div>
+    </div>
+  </div>
+</div>

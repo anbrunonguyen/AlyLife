@@ -1,0 +1,190 @@
+@import '../../../core/shared/scss/shared';
+
+$h1-size: 30px;
+$user-color: #8bc34a;
+
+.home {
+  padding-bottom: 50px;
+}
+// Menu btn
+.menu-btn-container {
+  position: relative;
+  width: 35px;
+  outline: none;
+  left: -2px;
+  top: 5px;
+
+  .menu-btn {
+    width: 35px;
+  }
+}
+
+// Greeting
+.greeting {
+  .greeting-text {
+    margin-top: 20px;
+    animation: fadeInDown 1s;
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: $h1-size;
+      font-weight: $header-weight;
+    }
+
+    .greeting-text__user {
+      color: $user-color;
+    }
+  }
+
+  .greeting-card {
+    position: relative;
+    padding-top: 100px;
+    margin-top: 20px;
+    transition: all 1s;
+    animation: fadeInDown 1s;
+
+    .greeting-card__avatar {
+      border-radius: 50%;
+      width: $avatar-size;
+      height: $avatar-size;
+      position: absolute;
+      top: 0px;
+      right: 20px;
+
+      img {
+        border-radius: 50%;
+        width: $avatar-size;
+      }
+    }
+
+    .greeting-card__background {
+      width: 100%;
+      height: 200px;
+      border-radius: $border-radius;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background: linear-gradient(90deg, #e3ffe2 1%, #d4f9bb 35%, #a6f1a6 100%);
+      .greeting-card__quote {
+        position: absolute;
+        bottom: 20px;
+        padding: 12px;
+        word-wrap: break-word;
+        font-weight: 600;
+        font-family: dancing;
+        width: 100%;
+
+        .quote {
+          color: #000000;
+          font-size: 18px;
+        }
+
+        .author {
+          font-size: 20px;
+          color: #e83d3d;
+          position: absolute;
+          right: 18px;
+        }
+      }
+    }
+  }
+
+  // Note
+  .note-container {
+    margin-top: $part-margin;
+    margin-bottom: $part-margin;
+    animation: fadeInLeft 1s;
+
+    aly-note-overview {
+      margin-bottom: 10px;
+    }
+
+    .card {
+      box-shadow: none !important;
+    }
+
+    .tags {
+      display: grid;
+      height: 160px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 5px;
+      grid-row-gap: 5px;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .note-tag {
+        border-radius: 20px;
+        background: $main-color;
+        box-shadow: $bubble-shadow;
+      }
+
+      .main-tag {
+        grid-area: 1 / 1 / 3 / 3;
+
+        img {
+          width: 100px;
+        }
+      }
+
+      .sub-tag1 {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+
+      .sub-tag2 {
+        grid-area: 1 / 4 / 2 / 5;
+      }
+
+      .sub-tag3 {
+        grid-area: 2 / 3 / 3 / 4;
+      }
+
+      .sub-tag4 {
+        grid-area: 2 / 4 / 3 / 5;
+      }
+    }
+  }
+
+  .money-container {
+    margin-top: $part-margin;
+  }
+}
+
+// Common class
+.press {
+  animation: press 1s ease-out;
+}
+
+.version {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.navigator {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 70vw;
+  height: 46px;
+  background: #fbfbfb;
+  bottom: 10px;
+  left: 15vw;
+  z-index: 9999;
+  border-radius: 22px;
+  animation: fadeInUp 1s;
+  box-shadow: 0 0 15px #0000001f;
+  .nav-item {
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
