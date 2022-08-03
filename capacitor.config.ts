@@ -5,6 +5,9 @@ const config: CapacitorConfig = {
   appName: 'AlyLife',
   webDir: 'www',
   bundledWebRuntime: false,
+  // ios: {
+  //   contentInset: 'always',
+  // },
 };
 
 export default config;

@@ -1,4 +1,4 @@
-@import '../../../../core/shared/scss/shared';
+@import "../../../../core/shared/scss/shared";
 
 .money-plan {
   .title {
@@ -39,11 +39,11 @@
 
   .plan {
     .income-color {
-      background: $main-color;
+      background: var(--main-color);
     }
 
     .outcome-color {
-      background: $main-color;
+      background: var(--main-color);
     }
 
     .plan-title {

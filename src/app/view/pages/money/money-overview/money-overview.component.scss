@@ -1,4 +1,4 @@
-@import '../../../../core/shared/scss/shared';
+@import "../../../../core/shared/scss/shared";
 
 .money-overview-container {
   overflow: hidden;
@@ -24,7 +24,7 @@
   .income-progress,
   .outcome-progress {
     box-shadow: none;
-    background: $main-color;
+    background: var(--main-color);
     margin: 10px 0;
     animation: fadeInUp 0.5s;
   }

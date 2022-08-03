@@ -1,10 +1,11 @@
-@import '../../../core/shared/scss/shared';
+@import "../../../core/shared/scss/shared";
 
 $h1-size: 30px;
 $user-color: #8bc34a;
 
 .home {
   padding-bottom: 50px;
+  padding-top: 0px;
 }
 // Menu btn
 .menu-btn-container {
@@ -61,11 +62,11 @@ $user-color: #8bc34a;
     .greeting-card__background {
       width: 100%;
       height: 200px;
-      border-radius: $border-radius;
+      border-radius: var(--border-radius);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      background: linear-gradient(90deg, #e3ffe2 1%, #d4f9bb 35%, #a6f1a6 100%);
+      background: var(--main-color);
       .greeting-card__quote {
         position: absolute;
         bottom: 20px;
@@ -119,8 +120,8 @@ $user-color: #8bc34a;
       }
 
       .note-tag {
-        border-radius: 20px;
-        background: $main-color;
+        border-radius: var(--border-radius);
+        background: var(--main-color);
         box-shadow: $bubble-shadow;
       }
 
@@ -172,10 +173,10 @@ $user-color: #8bc34a;
   width: 70vw;
   height: 46px;
   background: #fbfbfb;
-  bottom: 10px;
+  bottom: 20px;
   left: 15vw;
   z-index: 9999;
-  border-radius: 22px;
+  border-radius: var(--border-radius);
   animation: fadeInUp 1s;
   box-shadow: 0 0 15px #0000001f;
   .nav-item {

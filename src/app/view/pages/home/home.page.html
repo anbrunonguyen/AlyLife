@@ -4,8 +4,6 @@
     <img src="assets/img/menu-btn.png" class="menu-btn" />
   </div>
 
-  <!-- Greeting -->
-
   <!-- Greeting text -->
   <div class="greeting">
     <div class="greeting-text">
@@ -22,12 +20,6 @@
           <p class="author">{{quote.author}}</p>
         </div>
       </div>
-    </div>
-
-    <!-- Money -->
-    <div class="money-container">
-      <h1 class="heading">Ví tiền</h1>
-      <aly-money-preview></aly-money-preview>
     </div>
 
     <!-- Note -->
@@ -71,6 +63,12 @@
           <img src="assets/icon/study.svg" />
         </div>
       </div>
+    </div>
+
+    <!-- Money -->
+    <div class="money-container">
+      <h1 class="heading">Ví tiền</h1>
+      <aly-money-preview *ngIf="showMoney"></aly-money-preview>
     </div>
 
     <p class="version">0.8.3</p>

@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    // document.querySelector('body').style.setProperty('--main-color', 'red');
     this.store.ready().then(() => {
       this.store.get('user').then((data: User) => {
         if (data == null) {

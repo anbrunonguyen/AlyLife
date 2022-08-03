@@ -1,4 +1,4 @@
-@import '../../../../core/shared/scss/shared';
+@import "../../../../core/shared/scss/shared";
 
 $background: linear-gradient(
   0deg,
@@ -17,7 +17,7 @@ $background: linear-gradient(
   .stock-overview {
     display: grid;
     grid-template-columns: 1fr 1fr 40%;
-    background: $main-color;
+    background: var(--main-color);
     border-radius: 12px;
 
     div {
@@ -152,7 +152,7 @@ $gray: #9b9b9b;
 
 /* demo */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -165,16 +165,16 @@ body {
 mat-expansion-panel {
   margin: 8px 0;
   background: $background !important;
-  border-radius: $border-radius !important;
+  border-radius: var(--border-radius) !important;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-  font-family: 'noticia' !important;
+  font-family: "noticia" !important;
 
   .icon {
     width: 26px;
   }
 }
 
-.mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"])
   .mat-expansion-panel-header:hover {
   background: $background !important;
 }

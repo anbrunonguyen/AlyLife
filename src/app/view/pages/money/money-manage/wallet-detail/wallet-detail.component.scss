@@ -1,10 +1,10 @@
-@import '../../../../../core/shared/scss/shared';
+@import "../../../../../core/shared/scss/shared";
 
 .wallet-card {
-  background: $main-color;
+  background: var(--main-color);
   padding: 15px;
   overflow: hidden;
-  font-family: 'noticia' !important;
+  font-family: "noticia" !important;
   text-align: center;
   margin: 20px 0;
   box-shadow: none;

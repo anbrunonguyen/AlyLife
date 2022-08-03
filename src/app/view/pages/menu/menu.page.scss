@@ -1,4 +1,4 @@
-@import '../../../core/shared/scss/shared';
+@import "../../../core/shared/scss/shared";
 $grid-gap: 10px;
 
 .pages {
@@ -14,7 +14,7 @@ $grid-gap: 10px;
     grid-gap: $grid-gap;
 
     div {
-      border-radius: $border-radius;
+      border-radius: var(--border-radius);
       box-shadow: $card-box-shadow;
       display: flex;
       justify-content: center;

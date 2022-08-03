@@ -14,11 +14,12 @@ import { UserService } from '@core/services/user.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild('container', { static: true }) container: ElementRef;
   public quote: Quote;
   public greeting: string;
-  private tags: Tag[];
   public user: User;
-  @ViewChild('container', { static: true }) container: ElementRef;
+  public showMoney: boolean;
+  private tags: Tag[];
   constructor(
     private homeService: HomeService,
     private noteService: NoteService,
@@ -34,6 +35,9 @@ export class HomePage implements OnInit {
     this.userService.userChange.subscribe((data) => {
       this.user = data;
     });
+    setTimeout(() => {
+      this.showMoney = true;
+    }, 3000);
     this.store.ready().then(() => {
       this.store.get('user').then((data) => {
         this.user = data;
@@ -47,9 +51,7 @@ export class HomePage implements OnInit {
   }
 
   selectTag(tagName: string) {
-    const selectedTag = this.tags.find((tag) => {
-      return tag.type === tagName;
-    });
+    const selectedTag = this.tags.find((tag) => tag.type === tagName);
     setTimeout(() => {
       this.noteService.selectedTag = selectedTag;
       this.router.navigateByUrl('/note');

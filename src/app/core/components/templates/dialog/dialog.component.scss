@@ -1,4 +1,4 @@
-@import '../../../shared/scss/shared';
+@import "../../../shared/scss/shared";
 
 .overlay {
   display: flex;
@@ -16,7 +16,7 @@
 
   .dialog {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    background: $main-color;
+    background: var(--main-color);
     width: 80%;
     display: flex;
     flex-direction: column;

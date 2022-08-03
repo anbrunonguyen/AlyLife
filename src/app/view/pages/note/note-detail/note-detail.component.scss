@@ -6,7 +6,7 @@ $note-bg: rgba(227, 232, 239, 0.82);
 .note-detail-container {
   width: 100%;
   min-height: 250px;
-  border-radius: $border-radius;
+  border-radius: var(--border-radius);
   background: url(../../../../../assets/img/common.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -45,7 +45,7 @@ $note-bg: rgba(227, 232, 239, 0.82);
     width: 100%;
     min-height: 150px;
     margin-top: 120px;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     background: $note-bg;
     color: $note-content-color;
     position: relative;

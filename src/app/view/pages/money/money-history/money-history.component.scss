@@ -1,4 +1,4 @@
-@import '../../../../core/shared/scss/shared';
+@import "../../../../core/shared/scss/shared";
 
 $background: linear-gradient(
   0deg,
@@ -6,7 +6,7 @@ $background: linear-gradient(
   rgb(235, 245, 228) 100%
 );
 .history-container {
-  font-family: 'noticia' !important;
+  font-family: "noticia" !important;
   animation: smoothShow 1s;
 
   .transaction-filter {
@@ -29,16 +29,16 @@ $background: linear-gradient(
   mat-expansion-panel {
     margin: 8px 0;
     background: $background !important;
-    border-radius: $border-radius !important;
+    border-radius: var(--border-radius) !important;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-    font-family: 'noticia' !important;
+    font-family: "noticia" !important;
 
     .icon {
       width: 26px;
     }
   }
 
-  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"])
     .mat-expansion-panel-header:hover {
     background: $background !important;
   }
