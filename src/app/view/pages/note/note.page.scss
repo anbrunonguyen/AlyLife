@@ -60,6 +60,13 @@ input {
   background: rgba(187, 189, 194, 0.685);
   width: 58px;
   height: 58px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  img {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .no-info {

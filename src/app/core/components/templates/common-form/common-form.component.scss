@@ -1,35 +1,42 @@
-@import '../../../shared/scss/shared';
+@import "../../../shared/scss/shared";
 
 .overlay {
-    height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  background: $overlay-background;
+  animation: smoothShow 0.5s;
+
+  .form-container {
     width: 100vw;
-    position: fixed;
+    max-height: 80vh;
+    position: absolute;
     bottom: 0;
-    background: $overlay-background;
-    animation: smoothShow 0.5s;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    background: #4cb9b9;
+    padding: 15px;
+    // animation: fadeInUp 0.5s;
 
-    .form-container {
-        width: 100vw;
-        max-height: 80vh;
-        position: absolute;
-        bottom: 0;
-        border-top-left-radius: 36px;
-        border-top-right-radius: 36px;
-        background: #4cb9b9;
-        padding: 15px;
-        // animation: fadeInUp 0.5s;
+    .input-container {
+      display: grid;
+      grid-template-columns: 50px 1fr;
 
-        .input-container {
-            display: grid;
-            grid-template-columns: 50px 1fr;
-
-            mat-form-field {
-                width: 100%;
-            }
-        }
+      mat-form-field {
+        width: 100%;
+      }
     }
+  }
+}
+
+.icon {
+  img {
+    width: 36px;
+    height: 50px;
+  }
 }
 
 .fadeOutDown {
-    animation: fadeOutDown 0.5s;
+  animation: fadeOutDown 0.5s;
 }

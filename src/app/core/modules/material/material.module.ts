@@ -22,14 +22,11 @@ const Material = [
   MatRadioModule,
   MatExpansionModule,
   MatSliderModule,
-]
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    Material
-  ],
-  exports: [Material]
+  imports: [CommonModule, Material],
+  exports: [Material],
 })
-export class MaterialModule { }
+export class MaterialModule {}

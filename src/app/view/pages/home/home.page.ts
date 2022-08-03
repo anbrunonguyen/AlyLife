@@ -18,7 +18,6 @@ export class HomePage implements OnInit {
   public quote: Quote;
   public greeting: string;
   public user: User;
-  public showMoney: boolean;
   private tags: Tag[];
   constructor(
     private homeService: HomeService,
@@ -35,9 +34,6 @@ export class HomePage implements OnInit {
     this.userService.userChange.subscribe((data) => {
       this.user = data;
     });
-    setTimeout(() => {
-      this.showMoney = true;
-    }, 3000);
     this.store.ready().then(() => {
       this.store.get('user').then((data) => {
         this.user = data;

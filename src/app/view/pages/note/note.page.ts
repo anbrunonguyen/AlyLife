@@ -66,6 +66,7 @@ export class NotePage implements OnInit, OnDestroy {
   }
 
   getTags() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     (this.tags.type = 'tags'), (this.tags.data = this.noteService.getTag());
   }
 

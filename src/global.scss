@@ -67,18 +67,20 @@ body {
   font-family: "noticia" !important;
   color: var(--font-color);
   font-size: 16px;
-  background: var(--background-color);
+  // background: var(--background-color);
 
   .container {
     overflow: scroll;
     height: 100vh;
     width: 100%;
-    padding: 0px 15px;
+    padding: 35px 15px;
+    padding-top: 35px !important;
+    background: var(--background-color);
   }
 
-  .ion-page {
-    top: 18px !important;
-  }
+  // .ion-page {
+  //   top: 18px !important;
+  // }
 
   .container::-webkit-scrollbar {
     display: none;

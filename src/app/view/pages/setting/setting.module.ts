@@ -10,15 +10,17 @@ import { SettingPage } from './setting.page';
 import { SharedModule } from '@core/shared/shared/shared.module';
 import { PasswordComponent } from './password/password.component';
 import { UserComponent } from './user/user.component';
-
+import { ThemeComponent } from './theme/theme.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     SettingPageRoutingModule,
-    SharedModule
+    SharedModule,
+    ColorPickerModule,
   ],
-  declarations: [SettingPage, PasswordComponent, UserComponent]
+  declarations: [SettingPage, PasswordComponent, UserComponent, ThemeComponent],
 })
-export class SettingPageModule { }
+export class SettingPageModule {}

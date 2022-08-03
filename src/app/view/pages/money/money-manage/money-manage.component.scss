@@ -1,4 +1,4 @@
-@import '../../../../core/shared/scss/shared';
+@import "../../../../core/shared/scss/shared";
 
 aly-wallet-detail {
   width: 100%;
@@ -14,7 +14,14 @@ aly-wallet-detail {
   background: rgba(187, 189, 194, 0.685);
   width: 58px;
   height: 58px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   box-shadow: $card-box-shadow;
+  img {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .wallet-hint {

@@ -7,12 +7,7 @@
       <div class="avatar-img">
         <img [src]="user?.avatar" class="img" />
         <div class="edit">
-          <img
-            alyTouchReact
-            src="assets/icon/edit.svg"
-            class="edit-icon"
-            (click)="picker()"
-          />
+          <img alyTouchReact src="assets/icon/edit.svg" class="edit-icon" />
         </div>
       </div>
       <div class="avatar-text">
@@ -28,6 +23,9 @@
     </div>
     <div class="password" alyTouchReact alyRoute route="/setting/password">
       <p><img src="assets/icon/password.svg" alt="" /><span>Mật khẩu</span></p>
+    </div>
+    <div class="password" alyTouchReact alyRoute route="/setting/theme">
+      <p><img src="assets/icon/theme.svg" alt="" /><span>Giao diện</span></p>
     </div>
     <div class="home" alyTouchReact alyRoute route="/home">
       <p><img src="assets/icon/home.svg" alt="" /><span>Về trang chủ</span></p>

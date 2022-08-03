@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-// import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Storage } from '@ionic/storage';
 import { User } from '@core/models/user/user.model';
 import { Router } from '@angular/router';
 import { UserService } from '@core/services/user.service';
+import { StatusBar } from '@capacitor/status-bar';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { Platform } from '@ionic/angular';
+
 @Component({
   selector: 'aly-root',
   templateUrl: 'app.component.html',
@@ -28,12 +29,28 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       // this.statusBar.styleDefault();
       // this.splashScreen.hide();
+      SplashScreen.show({
+        showDuration: 300,
+        autoHide: true,
+      });
+      if (this.platform.is('android')) {
+        StatusBar.setOverlaysWebView({ overlay: true });
+      }
     });
   }
 
   ngOnInit() {
     // document.querySelector('body').style.setProperty('--main-color', 'red');
     this.store.ready().then(() => {
+      this.store.get('Color').then((data: any) => {
+        if (data) {
+          Object.keys(data).forEach((key) => {
+            if (data[key]) {
+              document.querySelector('body').style.setProperty(key, data[key]);
+            }
+          });
+        }
+      });
       this.store.get('user').then((data: User) => {
         if (data == null) {
           this.router.navigateByUrl('/auth');

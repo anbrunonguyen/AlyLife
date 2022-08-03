@@ -21,6 +21,7 @@ import { IonicGestureConfig } from '@core/config/hammerjs.config';
 // import { Crop } from '@ionic-native/crop/ngx';
 // import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
