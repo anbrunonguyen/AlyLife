@@ -25,14 +25,18 @@ export class ThemeComponent implements OnInit {
   ngOnInit() {}
 
   public saveColor() {
-    this.colorStorage[this.variable] = this.color;
     this.store.ready().then(() => {
-      console.log(this.color, this.variable);
       document
         .querySelector('body')
         .style.setProperty(this.variable, this.color);
+      this.store.get('Color').then((data: any) => {
+        if (data) {
+          this.colorStorage = data;
+        }
+        this.colorStorage[this.variable] = this.color;
+        this.store.set('Color', this.colorStorage).then();
+        this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
+      });
     });
-    this.store.set('Color', this.colorStorage).then();
-    this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
   }
 }

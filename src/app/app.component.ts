@@ -27,14 +27,12 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.statusBar.styleDefault();
-      // this.splashScreen.hide();
-      SplashScreen.show({
-        showDuration: 300,
-        autoHide: true,
-      });
+      // SplashScreen.show({
+      //   showDuration: 300,
+      //   autoHide: true,
+      // });
       if (this.platform.is('android')) {
-        StatusBar.setOverlaysWebView({ overlay: true });
+        StatusBar.hide();
       }
     });
   }
@@ -43,6 +41,9 @@ export class AppComponent implements OnInit {
     // document.querySelector('body').style.setProperty('--main-color', 'red');
     this.store.ready().then(() => {
       this.store.get('Color').then((data: any) => {
+        if (this.platform.is('android')) {
+          StatusBar.setOverlaysWebView({ overlay: true });
+        }
         if (data) {
           Object.keys(data).forEach((key) => {
             if (data[key]) {
