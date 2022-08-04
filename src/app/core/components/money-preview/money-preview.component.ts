@@ -10,8 +10,8 @@ import { UserService } from '@core/services/user.service';
 export class MoneyPreviewComponent implements OnInit {
   public currentBalance: number;
   public loan: number;
-  public inOutcomeColor = ['#e4eb26', '#eb3626'];
   public loanChartData: any[];
+  public inOutcomeColor = ['#00bf72', '#eb3626'];
   public inOutcomeChartData: any[];
 
   constructor(private moneyService: MoneyService) {}

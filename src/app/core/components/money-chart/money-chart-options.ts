@@ -1,7 +1,9 @@
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function getChartOptions(
   type,
   data: any[],
-  color?: string[]
+  color?: string[],
+  size: number = 150
 ): Highcharts.Options {
   return {
     chart: {
@@ -19,7 +21,7 @@ export function getChartOptions(
           enabled: false,
         },
         showInLegend: true,
-        size: 150,
+        size,
         colors: color || [
           '#71f071',
           '#f071cb',

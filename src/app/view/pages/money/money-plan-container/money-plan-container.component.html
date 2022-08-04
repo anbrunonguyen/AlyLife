@@ -48,13 +48,7 @@
   </div>
   <div class="slider" *ngIf="isShowSlider">
     <input [(ngModel)]="selectedTag.value" type="number" />
-    <p>Bấm để nhập hoặc kéo để chỉnh</p>
-    <mat-slider
-      min="0"
-      max="20000000"
-      step="1000"
-      [(ngModel)]="selectedTag.value"
-    ></mat-slider>
+    <p>Bấm để nhập</p>
     <div class="btn-container">
       <button alyTouchReact (click)="submitChange()" class="aly-btn">
         Lưu
