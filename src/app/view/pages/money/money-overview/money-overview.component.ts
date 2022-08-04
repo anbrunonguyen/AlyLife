@@ -10,7 +10,6 @@ const incomeColor = ['#fcbf14', '#e32a19', '#3cd611', '#278dcc', '#b765ba'];
   styleUrls: ['./money-overview.component.scss'],
 })
 export class MoneyOverviewComponent implements OnInit, OnDestroy {
-  private dataForPie;
   public totalMoneyChartData;
   public incomePieChartLabels = [];
   public incomePieChartData = [];
@@ -24,6 +23,9 @@ export class MoneyOverviewComponent implements OnInit, OnDestroy {
   public totalIncomeMax = 0;
   public totalOutcomeMax = 0;
   public dateSelect: number = new Date().getMonth();
+  public loan: number;
+  public loanChartData: any[];
+  private dataForPie;
 
   constructor(private moneyService: MoneyService) {}
 
@@ -37,6 +39,11 @@ export class MoneyOverviewComponent implements OnInit, OnDestroy {
   updateData() {
     this.resetData();
     this.dataForPie = this.moneyService.getInOutcomeMoneyByTag(this.dateSelect);
+    this.loan = this.moneyService.getCurrentLoan();
+    this.loanChartData = [
+      { name: 'Tổng tiền', y: this.moneyService.getCurrentBalance() },
+      { name: 'Tổng nợ', y: this.loan },
+    ];
     const outcomePlan = this.moneyService.getOutcomePlan;
     const incomePlan = this.moneyService.getIncomePlan;
 

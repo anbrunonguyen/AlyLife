@@ -2,17 +2,18 @@
   <div class="balance aly-card">
     <h6>Số tiền hiện tại</h6>
     <h2>{{ currentBalance | number }}</h2>
-  </div>
-  <div class="balance aly-card">
-    <div class="money-preview-detail">
-      <div>
-        <aly-money-chart [chartData]="loanChartData"></aly-money-chart>
-      </div>
-      <div>
-        <aly-money-chart
-          [chartData]="inOutcomeChartData"
-          [color]="inOutcomeColor"
-        ></aly-money-chart>
+    <div>
+      <div class="money-preview-detail">
+        <!-- <div>
+         
+        </div> -->
+        <div class="chart-container">
+          <aly-money-chart
+            [chartData]="inOutcomeChartData"
+            [color]="inOutcomeColor"
+            [size]="200"
+          ></aly-money-chart>
+        </div>
       </div>
     </div>
   </div>

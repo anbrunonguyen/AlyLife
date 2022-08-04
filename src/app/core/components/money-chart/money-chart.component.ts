@@ -10,6 +10,7 @@ export class MoneyChartComponent implements OnInit, OnChanges {
   @Input() chartData: any[];
   @Input() type = 'pie';
   @Input() color: string[];
+  @Input() size: number;
 
   public Highcharts: typeof Highcharts = Highcharts;
   public chartOptions: Highcharts.Options;
@@ -17,10 +18,20 @@ export class MoneyChartComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
-    this.chartOptions = getChartOptions(this.type, this.chartData, this.color);
+    this.chartOptions = getChartOptions(
+      this.type,
+      this.chartData,
+      this.color,
+      this.size
+    );
   }
 
   ngOnChanges() {
-    this.chartOptions = getChartOptions(this.type, this.chartData, this.color);
+    this.chartOptions = getChartOptions(
+      this.type,
+      this.chartData,
+      this.color,
+      this.size
+    );
   }
 }

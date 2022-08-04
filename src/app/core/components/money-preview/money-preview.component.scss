@@ -2,9 +2,9 @@
 
 .money-preview-container {
   .balance {
-    box-shadow: none;
+    // box-shadow: none;
     background: var(--main-color);
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     box-shadow: $bubble-shadow;
 
     h2,
@@ -18,7 +18,11 @@
     h2 {
       margin-top: 2px;
       font-weight: bold;
-      font-size: 35px;
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    h6 {
+      font-style: italic;
     }
   }
 
@@ -26,7 +30,11 @@
     text-align: center;
   }
   .money-preview-detail {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    .chart-container {
+      width: 100vw;
+      position: relative;
+    }
   }
 }

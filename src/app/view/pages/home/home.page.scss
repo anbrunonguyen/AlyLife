@@ -175,13 +175,13 @@ $user-color: #8bc34a;
   position: fixed;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: 70vw;
-  height: 46px;
+  width: 60vw;
+  height: 40px;
   background: #fbfbfb;
   bottom: 20px;
-  left: 15vw;
+  left: 20vw;
   z-index: 9999;
-  border-radius: var(--border-radius);
+  border-radius: 20px;
   animation: fadeInUp 1s;
   box-shadow: 0 0 15px #0000001f;
   .nav-item {
@@ -189,8 +189,8 @@ $user-color: #8bc34a;
     padding: 5px 0;
     text-align: center;
     img {
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
     }
   }
 }
