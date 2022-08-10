@@ -159,6 +159,15 @@ $user-color: #8bc34a;
   .money-container {
     margin-top: $part-margin;
   }
+
+  .calendar-container {
+    border-radius: var(--border-radius);
+    background: var(--main-color);
+    box-shadow: $bubble-shadow;
+  }
+  .lunar-calendar {
+    margin-bottom: 10px;
+  }
 }
 
 // Common class
@@ -169,6 +178,7 @@ $user-color: #8bc34a;
 .version {
   font-size: 12px;
   margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 .navigator {

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { User } from '@core/models/user/user.model';
 import { UserService } from '@core/services/user.service';
-
+import { lunarCalender } from '@core/helper/lunar';
 @Component({
   selector: 'aly-home',
   templateUrl: './home.page.html',
@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   public quote: Quote;
   public greeting: string;
   public user: User;
+  public selectedDate = new Date();
   private tags: Tag[];
   constructor(
     private homeService: HomeService,
@@ -39,6 +40,14 @@ export class HomePage implements OnInit {
         this.user = data;
       });
     });
+  }
+
+  getLunarDate(): void {
+    return lunarCalender.toLunar(
+      this.selectedDate.getFullYear(),
+      this.selectedDate.getMonth() + 1,
+      this.selectedDate.getDate()
+    );
   }
 
   getGreeting() {
