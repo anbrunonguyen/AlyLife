@@ -1,31 +1,31 @@
-<div class="container">
-  <h1 class="heading">
-    <i class="icon icon-back" routerLink="/setting"></i> Giao diện
-  </h1>
-  <mat-form-field appearance="fill">
-    <mat-label>Chọn màu muốn đổi</mat-label>
-    <mat-select [(ngModel)]="variable">
-      <mat-option
-        *ngFor="let variable of variableList"
-        [value]="variable.value"
-        >{{ variable.title }}</mat-option
-      >
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Màu thường</mat-label>
-    <input
-      type="string"
-      name="color"
-      matInput
-      [(colorPicker)]="color"
-      [(ngModel)]="color"
-    />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Màu xịn</mat-label>
+<ion-content>
+  <div class="container">
+    <h1 class="heading" alyGoBack><i class="icon icon-back"></i> Giao diện</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Chọn màu muốn đổi</mat-label>
+      <mat-select [(ngModel)]="variable">
+        <mat-option
+          *ngFor="let variable of variableList"
+          [value]="variable.value"
+          >{{ variable.title }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Màu thường</mat-label>
+      <input
+        type="string"
+        name="color"
+        matInput
+        [(colorPicker)]="color"
+        [(ngModel)]="color"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Màu xịn</mat-label>
 
-    <input type="string" name="color" matInput [(ngModel)]="color" />
-  </mat-form-field>
-  <button alyTouchReact class="aly-btn" (click)="saveColor()">Lưu</button>
-</div>
+      <input type="string" name="color" matInput [(ngModel)]="color" />
+    </mat-form-field>
+    <button alyTouchReact class="aly-btn" (click)="saveColor()">Lưu</button>
+  </div>
+</ion-content>

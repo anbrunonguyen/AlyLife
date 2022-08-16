@@ -16,8 +16,6 @@ import { Platform } from '@ionic/angular';
 export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
-    // private splashScreen: SplashScreen,
-    // private statusBar: StatusBar,
     private store: Storage,
     private router: Router,
     private userService: UserService
@@ -27,10 +25,11 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // SplashScreen.show({
-      //   showDuration: 300,
-      //   autoHide: true,
-      // });
+      SplashScreen.show({
+        showDuration: 300,
+        autoHide: true,
+      });
+
       if (this.platform.is('android')) {
         StatusBar.hide();
       }
@@ -38,7 +37,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // document.querySelector('body').style.setProperty('--main-color', 'red');
     this.store.ready().then(() => {
       this.store.get('Color').then((data: any) => {
         if (this.platform.is('android')) {
@@ -60,7 +58,9 @@ export class AppComponent implements OnInit {
           if (this.userService.user.password !== undefined) {
             this.router.navigateByUrl('/auth');
           } else {
-            this.router.navigateByUrl('/home');
+            setTimeout(() => {
+              this.router.navigateByUrl('/home');
+            }, 200);
           }
           return;
         }
