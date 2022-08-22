@@ -64,12 +64,12 @@
 }
 
 body {
-  font-family: "noticia" !important;
   color: var(--font-color);
   font-size: 16px;
   letter-spacing: 1px;
 
   .container {
+    font-family: "noticia";
     overflow: scroll;
     height: 100vh;
     width: 100%;
@@ -77,10 +77,6 @@ body {
     padding-top: 40px !important;
     background: var(--background-color);
   }
-
-  // .ion-page {
-  //   top: 18px !important;
-  // }
 
   .container::-webkit-scrollbar {
     display: none;
@@ -110,4 +106,5 @@ body {
   );
   --font-color: black;
   --border-radius: 15px;
+  --ion-default-font: "noticia";
 }
