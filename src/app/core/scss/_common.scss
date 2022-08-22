@@ -30,7 +30,7 @@
   margin-bottom: 12px;
   font-size: 30px;
   font-weight: $header-weight;
-  animation: smoothShow 0.5s;
+  animation: smoothShow 0.3s;
 }
 
 .sub-heading {
@@ -77,11 +77,11 @@
 }
 
 .on-press {
-  animation: press 0.5s;
+  animation: press 0.3s;
 }
 
 .fadeInUp {
-  animation-name: fadeInUp 0.5s;
+  animation-name: fadeInUp 0.3s;
 }
 
 .shake {
@@ -90,11 +90,11 @@
 }
 
 .fadeInUp {
-  animation: fadeInUp 0.5s;
+  animation: fadeInUp 0.3s;
 }
 
 .fadeInDown {
-  animation: fadeInDown 0.5s;
+  animation: fadeInDown 0.3s;
 }
 
 .rubberBand {
@@ -123,7 +123,7 @@
   margin: 10px 0;
   background: var(--main-color);
   box-shadow: none;
-  animation: fadeInUp 0.5s;
+  animation: fadeInUp 0.3s;
 }
 
 .goBig {

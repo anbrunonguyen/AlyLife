@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       SplashScreen.show({
-        showDuration: 300,
+        showDuration: 500,
         autoHide: true,
       });
 

@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { Chart } from 'highcharts';
 import { getChartOptions } from './money-chart-options';
 @Component({
   selector: 'aly-money-chart',
@@ -12,9 +13,8 @@ export class MoneyChartComponent implements OnInit, OnChanges {
   @Input() color: string[];
   @Input() size: number;
 
-  public Highcharts: typeof Highcharts = Highcharts;
+  public highCharts: typeof Highcharts = Highcharts;
   public chartOptions: Highcharts.Options;
-
   constructor() {}
 
   ngOnInit() {
@@ -33,5 +33,11 @@ export class MoneyChartComponent implements OnInit, OnChanges {
       this.color,
       this.size
     );
+  }
+
+  callback(chart: Chart) {
+    setTimeout(() => {
+      chart.setSize(300, 270);
+    });
   }
 }

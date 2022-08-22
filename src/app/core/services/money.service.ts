@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { TagPlan } from './../models/money/tag-plan.model';
 import { moneyOutcomeType, moneyIncomeType } from '@core/data/money';
 import { Injectable } from '@angular/core';
@@ -128,12 +129,8 @@ export class MoneyService {
     const data = this.getInOutcomeMoneyByTag(new Date().getMonth());
     const incomeProgress = [];
     const outcomeProgress = [];
-    const outcomePlan = moneyOutcomeType.map((type) => {
-      return type.id;
-    });
-    const incomePlan = moneyIncomeType.map((type) => {
-      return type.id;
-    });
+    const outcomePlan = moneyOutcomeType.map((type) => type.id);
+    const incomePlan = moneyIncomeType.map((type) => type.id);
     Object.keys(data).map((tag, i) => {
       incomePlan.find((id) => {
         if (id === tag) {
@@ -272,9 +269,9 @@ export class MoneyService {
     this.moneyBill.push(moneyBill);
     this.wallets.forEach((wallet) => {
       if (wallet.name === moneyBill.wallet) {
-        let transaction = wallet.transactions.find((bill) => {
-          return bill.dateId === day;
-        });
+        let transaction = wallet.transactions.find(
+          (bill) => bill.dateId === day
+        );
         if (transaction) {
           transaction.bill.push(moneyBill);
         } else {
@@ -314,9 +311,9 @@ export class MoneyService {
   deleteBill(moneyBill: InOutcome) {
     this.wallets.forEach((wallet) => {
       if (wallet.name === moneyBill.wallet) {
-        const transaction = wallet.transactions.find((bill) => {
-          return bill.dateId === getToday(moneyBill.date);
-        });
+        const transaction = wallet.transactions.find(
+          (bill) => bill.dateId === getToday(moneyBill.date)
+        );
         if (transaction) {
           const bill = transaction.bill.find(
             (bills) => bills.id === moneyBill.id
@@ -352,9 +349,7 @@ export class MoneyService {
     let result = [];
     this.wallets.forEach((wallet) => {
       result = result.concat(
-        wallet.transactions.filter((transaction) => {
-          return transaction.dateId === day;
-        })
+        wallet.transactions.filter((transaction) => transaction.dateId === day)
       );
     });
     return result;

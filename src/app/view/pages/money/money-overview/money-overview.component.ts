@@ -32,6 +32,7 @@ export class MoneyOverviewComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subcription = this.moneyService.initMoneyService.subscribe(() => {
       this.updateData();
+      console.log('update data');
     });
     this.totalMoneyChartData = this.moneyService.getDataForChart();
   }

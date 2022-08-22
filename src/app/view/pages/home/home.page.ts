@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
   }
 
   getLunarDate(): void {
-    console.log('get lunar date');
+    // console.log('get lunar date');
 
     return lunarCalender.toLunar(
       this.selectedDate.getFullYear(),

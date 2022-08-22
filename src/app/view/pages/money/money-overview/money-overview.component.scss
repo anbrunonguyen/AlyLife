@@ -2,6 +2,10 @@
 
 .money-overview-container {
   overflow: hidden;
+  .chart-container {
+    display: flex;
+    justify-content: center;
+  }
   .pick-month {
     input {
       display: none;

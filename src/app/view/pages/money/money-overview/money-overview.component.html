@@ -21,17 +21,23 @@
 
       <div style="display: block" class="aly-card chart">
         <p>Thu nhập</p>
-        <aly-money-chart [chartData]="incomePieChartData"></aly-money-chart>
+        <div class="chart-container">
+          <aly-money-chart [chartData]="incomePieChartData"></aly-money-chart>
+        </div>
       </div>
 
       <div style="display: block" class="aly-card chart">
         <p>Chi tiêu</p>
-        <aly-money-chart [chartData]="outcomePieChartData"></aly-money-chart>
+        <div class="chart-container">
+          <aly-money-chart [chartData]="outcomePieChartData"></aly-money-chart>
+        </div>
       </div>
 
       <div style="display: block" class="aly-card chart">
         <p>Nợ/Tài Sản</p>
-        <aly-money-chart [chartData]="loanChartData"></aly-money-chart>
+        <div class="chart-container">
+          <aly-money-chart [chartData]="loanChartData"></aly-money-chart>
+        </div>
       </div>
 
       <div class="aly-card income-progress">
