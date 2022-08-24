@@ -25,6 +25,11 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      SplashScreen.show({
+        showDuration: 1500,
+        autoHide: true,
+      });
+
       if (this.platform.is('android')) {
         StatusBar.hide();
       }
