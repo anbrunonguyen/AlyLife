@@ -32,7 +32,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "aly",
             "style": "camelCase"
           }
         ]

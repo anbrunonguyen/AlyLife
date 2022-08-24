@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { User } from '@core/models/user/user.model';
 import { UserService } from '@core/services/user.service';
-import { lunarCalender } from '@core/helper/lunar';
+import { convertSolar2Lunar } from '@core/helper/lunar';
 @Component({
   selector: 'aly-home',
   templateUrl: './home.page.html',
@@ -42,13 +42,12 @@ export class HomePage implements OnInit {
     });
   }
 
-  getLunarDate(): void {
-    // console.log('get lunar date');
-
-    return lunarCalender.toLunar(
-      this.selectedDate.getFullYear(),
+  getLunarDate(): string {
+    return convertSolar2Lunar(
+      this.selectedDate.getDate(),
       this.selectedDate.getMonth() + 1,
-      this.selectedDate.getDate()
+      this.selectedDate.getFullYear(),
+      7
     );
   }
 

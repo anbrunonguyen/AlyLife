@@ -66,7 +66,6 @@
 body {
   color: var(--font-color);
   font-size: 16px;
-  letter-spacing: 0.5px;
 
   .container {
     font-family: "noticia";
@@ -98,15 +97,26 @@ body {
   ::ng-deep .mat-focused .mat-form-field-placeholder {
     color: var(--font-color) !important;
   }
-  --main-color: rgba(255, 255, 255, 0.12);
+  // this is green theme
+  // --main-color: rgba(255, 255, 255, 0.12);
+  // --background-color: linear-gradient(
+  //   to right top,
+  //   #134a3d,
+  //   #077658,
+  //   #249683,
+  //   #00bf72,
+  //   #a8eb12
+  // );
+  --main-color: rgb(255 255 255 / 15%);
   --background-color: linear-gradient(
     to right top,
-    #134a3d,
-    #077658,
-    #249683,
-    #00bf72,
-    #a8eb12
+    #d647b2,
+    #d684cc,
+    #f1a9e6,
+    #f7ceed,
+    #f5d7f1
   );
+  --user-color: #fb04af;
   --font-color: black;
   --border-radius: 15px;
   --ion-default-font: "noticia";

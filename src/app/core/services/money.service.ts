@@ -204,7 +204,7 @@ export class MoneyService {
             wallet.cash -= data.money;
             if (data.money > wallet.investmentValue) {
               wallet.currentBalance -= data.money - wallet.investmentValue;
-              this.setMoneyByDay(
+              this.addBillByDay(
                 {
                   ...data,
                   money: data.money - wallet.investmentValue,
@@ -228,13 +228,14 @@ export class MoneyService {
               reducer,
               0
             );
+
             const netValue =
               totalMoneyHadSpentOnCredit > 0
                 ? data.money - totalMoneyHadSpentOnCredit
                 : data.money;
             fromWallet.currentBalance += netValue;
 
-            this.setMoneyByDay(
+            this.addBillByDay(
               {
                 ...data,
                 money: netValue,
@@ -243,9 +244,13 @@ export class MoneyService {
               },
               getToday(data.date)
             );
-            toWallet.transactions[0].income += data.money;
+
+            if (toWallet.transactions[0]) {
+              toWallet.transactions[0].income += data.money;
+            }
           }
         }
+
         if (wallet.name === data.toWallet) {
           wallet.currentBalance += data.money;
           if (toWallet.type === WalletTypeString.CO_PHIEU) {
@@ -265,7 +270,7 @@ export class MoneyService {
     }
   }
 
-  setMoneyByDay(moneyBill: InOutcome, day = getToday()) {
+  addBillByDay(moneyBill: InOutcome, day = getToday()) {
     this.moneyBill.push(moneyBill);
     this.wallets.forEach((wallet) => {
       if (wallet.name === moneyBill.wallet) {

@@ -29,7 +29,11 @@ export class AddWalletComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.moneyService.setListWallets(form.value);
+    const data = form.value;
+    if (form.value.type === WalletTypeString.TIN_DUNG) {
+      data.loan = data.total - data.currentBalance;
+    }
+    this.moneyService.setListWallets(data);
     this.snackBar.open('Thành công rồi!', '', { duration: 1000 });
     this.router.navigateByUrl('/money');
   }

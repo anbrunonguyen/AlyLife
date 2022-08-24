@@ -56,7 +56,7 @@ export class AddMoneyComponent implements OnInit {
     const moneyBill = form.value;
     moneyBill.id = 'bill_' + randomID();
     moneyBill.date = new Date();
-    this.moneyService.setMoneyByDay(moneyBill, getToday(moneyBill.date));
+    this.moneyService.addBillByDay(moneyBill, getToday(moneyBill.date));
     this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
     this.router.navigateByUrl('/money');
   }

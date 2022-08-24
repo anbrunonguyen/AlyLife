@@ -34,7 +34,7 @@ $user-color: #8bc34a;
     }
 
     .greeting-text__user {
-      color: $user-color;
+      color: var(--user-color);
     }
   }
 
