@@ -30,7 +30,13 @@ export class AddWalletComponent implements OnInit {
       return;
     }
     const data = form.value;
+    data.currentBalance = parseInt(
+      form.value.currentBalance.replaceAll(',', ''),
+      10
+    );
+
     if (form.value.type === WalletTypeString.TIN_DUNG) {
+      data.total = parseInt(form.value.total.replaceAll(',', ''), 10);
       data.loan = data.total - data.currentBalance;
     }
     this.moneyService.setListWallets(data);

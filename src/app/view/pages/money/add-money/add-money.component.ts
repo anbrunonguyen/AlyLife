@@ -44,8 +44,11 @@ export class AddMoneyComponent implements OnInit {
     if (form.invalid) {
       return;
     }
+    const data = form.value;
+    data.money = parseInt(form.value.money.replaceAll(',', ''), 10);
+
     if (this.isInTransferMode) {
-      const moneyTransfer = form.value;
+      const moneyTransfer = data;
       moneyTransfer.id = 'bill_' + randomID();
       moneyTransfer.date = new Date();
       this.moneyService.transferMoney(moneyTransfer);
@@ -53,7 +56,7 @@ export class AddMoneyComponent implements OnInit {
       this.router.navigateByUrl('/money');
       return;
     }
-    const moneyBill = form.value;
+    const moneyBill = data;
     moneyBill.id = 'bill_' + randomID();
     moneyBill.date = new Date();
     this.moneyService.addBillByDay(moneyBill, getToday(moneyBill.date));

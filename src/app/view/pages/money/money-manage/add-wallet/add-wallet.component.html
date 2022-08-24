@@ -43,9 +43,10 @@
               matInput
               placeholder="Vd: 100000"
               name="currentBalance"
-              type="number"
-              ngModel
+              [ngModel]="form.currentBalance | numberPipe"
+              (ngModelChange)="form.currentBalance = $event"
               required
+              type="text"
             />
           </mat-form-field>
         </div>
@@ -63,9 +64,10 @@
               matInput
               placeholder="Vd: 100000"
               name="currentBalance"
-              type="number"
-              ngModel
+              [ngModel]="form.currentBalance | numberPipe"
+              (ngModelChange)="form.currentBalance = $event"
               required
+              type="text"
             />
           </mat-form-field>
         </div>
@@ -80,11 +82,12 @@
             <mat-label>Hạn mức</mat-label>
             <input
               matInput
-              placeholder="Vd: 100000"
               name="total"
-              type="number"
-              ngModel
+              placeholder="Vd: 100000"
+              [ngModel]="form.total | numberPipe"
+              (ngModelChange)="form.total = $event"
               required
+              type="text"
             />
           </mat-form-field>
         </div>

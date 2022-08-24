@@ -37,9 +37,10 @@
               matInput
               placeholder="Vd: 100000"
               name="money"
-              ngModel
+              [ngModel]="form.money | numberPipe"
+              (ngModelChange)="form.money = $event"
               required
-              type="number"
+              type="text"
             />
           </mat-form-field>
         </div>
