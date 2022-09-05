@@ -1,5 +1,11 @@
 <ion-content>
   <div class="container">
     <h1 class="heading" alyGoBack><i class="icon icon-back"></i>Bé Yêu</h1>
+    <button (click)="pickPhotos()" class="aly-btn">Chọn ảnh</button>
+    <div *ngIf="imgSrc">
+      <div *ngFor="let img of imgSrc.photos">
+        <img [src]="img.webPath" alt="" />
+      </div>
+    </div>
   </div>
 </ion-content>
