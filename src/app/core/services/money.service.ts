@@ -168,6 +168,14 @@ export class MoneyService {
     this.saveWallets();
   }
 
+  removeWallet(id: string) {
+    const target = this.wallets.find((wallet) => wallet.id === id);
+    this.wallets.splice(this.wallets.indexOf(target), 1);
+    console.log('removeWallet', this.wallets);
+
+    this.saveWallets();
+  }
+
   saveWallets() {
     this.storage.ready().then(() => {
       this.storage.set(`wallets`, this.wallets).then((data) => {

@@ -7,7 +7,7 @@ import { Tag } from '@core/models/note/tag.model';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NoteService {
   public allNote: Note[] = [];
@@ -27,19 +27,21 @@ export class NoteService {
 
   getAllNote(): void {
     this.storage.ready().then(() => {
-      this.storage.get('note').then(data => {
-        if (data) this.allNote = data;
-      })
-    })
+      this.storage.get('note').then((data) => {
+        if (data) {
+          this.allNote = data;
+        }
+      });
+    });
   }
 
   saveAllNote(): void {
     this.storage.ready().then(() => {
       this.storage.set('note', this.allNote).then(() => {
         this.newNote.next('new');
-        this.router.navigateByUrl('/note')
+        this.router.navigateByUrl('/note');
       });
-    })
+    });
   }
 
   saveNote(note: Note): void {
@@ -50,7 +52,7 @@ export class NoteService {
   editNote(note: Note): void {
     let index;
     for (let i = 0; i < this.allNote.length; i++) {
-      if (this.allNote[i].id == note.id) {
+      if (this.allNote[i].id === note.id) {
         index = i;
         break;
       }
@@ -66,7 +68,7 @@ export class NoteService {
   deleteNote(id: string): void {
     let index;
     for (let i = 0; i < this.allNote.length; i++) {
-      if (this.allNote[i].id == id) {
+      if (this.allNote[i].id === id) {
         index = i;
         break;
       }

@@ -1,4 +1,4 @@
-<div class="aly-card wallet-card" alyTouchReact>
+<div class="aly-card wallet-card" alyTouchReact (press)="letTest($event, ele)">
   <div class="first-line">
     <h2>{{ wallet.name }}</h2>
     <h1>{{ wallet.currentBalance | number }}</h1>
@@ -17,5 +17,24 @@
         <p>{{ outcome | number }}</p>
       </div>
     </div>
+  </div>
+  <!-- <div class="edit hide">
+    <img
+      alyTouchReact
+      src="assets/icon/edit.svg"
+      class="edit-icon"
+      (click)="editNote()"
+      alyRoute
+      route="/note/edit"
+    />
+  </div> -->
+  <div class="delete hide">
+    <img
+      alyTouchReact
+      alyDialog
+      [data]="dataDelete"
+      src="assets/icon/delete.svg"
+      class="delete-icon"
+    />
   </div>
 </div>

@@ -3,12 +3,14 @@
     <div class="authen">
       <div class="avatar-container">
         <div class="avatar">
-          <div class="avatar-img">
-            <img [src]="url" class="img" />
-            <div class="edit" *ngIf="user?.name==undefined">
+          <div
+            class="avatar-img"
+            [ngStyle]="{'background-image': 'url(' + user?.avatar + ')'}"
+          >
+            <div class="edit" *ngIf="user?.name===undefined">
               <img
                 alyTouchReact
-                src="assets/icon/edit.svg"
+                src="assets/icon/camera.svg"
                 class="edit-icon"
                 (click)="picker()"
               />
@@ -19,7 +21,7 @@
 
       <form #auth="ngForm" (submit)="onSubmit(auth)">
         <div class="first-time">
-          <div class="user-name" *ngIf="user?.name==undefined">
+          <div class="user-name" *ngIf="user?.name===undefined">
             <p for="">Hãy nhập tên bạn</p>
             <input type="text" name="name" class="aly-input" ngModel />
             <div class="btn-container">

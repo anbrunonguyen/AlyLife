@@ -6,6 +6,6 @@ import { NavController } from '@ionic/angular';
 export class GoBackDirective {
   constructor(private navCtrl: NavController) {}
   @HostListener('click') goBack() {
-    this.navCtrl.pop();
+    this.navCtrl.back();
   }
 }

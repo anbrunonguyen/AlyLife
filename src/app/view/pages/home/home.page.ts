@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 import { User } from '@core/models/user/user.model';
 import { UserService } from '@core/services/user.service';
 import { convertSolar2Lunar } from '@core/helper/lunar';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'aly-home',
   templateUrl: './home.page.html',
@@ -25,6 +26,7 @@ export class HomePage implements OnInit {
     private noteService: NoteService,
     private router: Router,
     private store: Storage,
+    private sanitizer: DomSanitizer,
     private userService: UserService
   ) {}
 
@@ -34,6 +36,7 @@ export class HomePage implements OnInit {
     this.tags = this.noteService.getTag();
     this.userService.userChange.subscribe((data) => {
       this.user = data;
+      console.log('user data', data);
     });
     this.store.ready().then(() => {
       this.store.get('user').then((data) => {
@@ -49,6 +52,10 @@ export class HomePage implements OnInit {
       this.selectedDate.getFullYear(),
       7
     );
+  }
+
+  covertUserAvatar(url: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
   getGreeting() {

@@ -52,11 +52,9 @@ $user-color: #8bc34a;
       position: absolute;
       top: 0px;
       right: 20px;
-
-      img {
-        border-radius: 50%;
-        width: $avatar-size;
-      }
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     .greeting-card__background {

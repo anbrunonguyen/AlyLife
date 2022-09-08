@@ -11,17 +11,23 @@ export class ImageService {
     Camera.requestPermissions();
   }
 
-  pickImage() {
+  pickImage(width?: number, height?: number, limit?: number) {
     return Camera.pickImages({
       quality: 100,
+      width,
+      height,
+      limit,
+      correctOrientation: true,
     });
   }
 
-  takePicture() {
+  takePicture(width?: number, height?: number) {
     return Camera.getPhoto({
-      quality: 90,
+      quality: 100,
       allowEditing: true,
       resultType: CameraResultType.Uri,
+      width,
+      height,
     });
   }
 }
