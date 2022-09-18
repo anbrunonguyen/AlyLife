@@ -13,7 +13,7 @@
     "build-android": "ionic cap build android",
     "build-ios": "ionic cap build ios",
     "ios": "ionic capacitor run ios -l --external",
-    "android": "ionic capacitor run android -l --host=192.168.1.11",
+    "android": "ionic capacitor run android -l --host=192.168.1.6",
     "android-assets": "cordova-res android --skip-config --copy",
     "ios-assets": "cordova-res ios --skip-config --copy"
   },
