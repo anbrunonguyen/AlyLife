@@ -47,14 +47,16 @@ export class MoneyPlanContainerComponent implements OnInit {
   }
 
   calculateIncomeTotal() {
-    this.incomeTotal = this.incomePlan.reduce((total, income) => {
-      return total + income.value;
-    }, 0);
+    this.incomeTotal = this.incomePlan.reduce(
+      (total, income) => total + income.value,
+      0
+    );
   }
 
   calculateOutcomeTotal() {
-    this.outcomeTotal = this.outcomePlan.reduce((total, income) => {
-      return total + income.value;
-    }, 0);
+    this.outcomeTotal = this.outcomePlan.reduce(
+      (total, income) => total + income.value,
+      0
+    );
   }
 }
