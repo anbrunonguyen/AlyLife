@@ -14,11 +14,14 @@ export class MoneyManageComponent implements OnInit {
   public incomePlan: TagPlan[];
   public outcomePlan: TagPlan[];
   public selectedTag: TagPlan;
-  public isShowSlider: boolean = false;
-  constructor(private moneyService: MoneyService, private _snackBar: MatSnackBar) { }
+  public isShowSlider = false;
+  constructor(
+    private moneyService: MoneyService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
-    this.moneyService.initMoneyService.subscribe(data => {
+    this.moneyService.initMoneyService.subscribe((data) => {
       this.wallets = data;
       this.incomePlan = this.moneyService.incomePlan;
       this.outcomePlan = this.moneyService.outcomePlan;
@@ -27,13 +30,15 @@ export class MoneyManageComponent implements OnInit {
 
   choose(plan) {
     this.selectedTag = plan;
-    this.isShowSlider = true
+    this.isShowSlider = true;
   }
 
   submitChange() {
     this.isShowSlider = false;
     this.moneyService.changePlan(this.selectedTag);
-    this._snackBar.open('Thành công rồi!', '', { duration: 1000, })
-
+    this.snackBar.open('..... Thành công rồi! .....', '', {
+      duration: 1000,
+      verticalPosition: 'top',
+    });
   }
 }

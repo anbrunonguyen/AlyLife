@@ -52,7 +52,10 @@ export class AddMoneyComponent implements OnInit {
       moneyTransfer.id = 'bill_' + randomID();
       moneyTransfer.date = new Date();
       this.moneyService.transferMoney(moneyTransfer);
-      this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
+      this.snackBar.open('..... Thành công rồi! .....!!', '', {
+        duration: 1000,
+        verticalPosition: 'top',
+      });
       this.router.navigateByUrl('/money');
       return;
     }
@@ -60,7 +63,10 @@ export class AddMoneyComponent implements OnInit {
     moneyBill.id = 'bill_' + randomID();
     moneyBill.date = new Date();
     this.moneyService.addBillByDay(moneyBill, getToday(moneyBill.date));
-    this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
+    this.snackBar.open('..... Thành công rồi! .....!!', '', {
+      duration: 1000,
+      verticalPosition: 'top',
+    });
     this.router.navigateByUrl('/money');
   }
 }

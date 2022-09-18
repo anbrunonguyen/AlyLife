@@ -40,7 +40,10 @@ export class AddWalletComponent implements OnInit {
       data.loan = data.total - data.currentBalance;
     }
     this.moneyService.setListWallets(data);
-    this.snackBar.open('Thành công rồi!', '', { duration: 1000 });
+    this.snackBar.open('..... Thành công rồi! .....', '', {
+      duration: 1000,
+      verticalPosition: 'top',
+    });
     this.router.navigateByUrl('/money');
   }
 }

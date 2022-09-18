@@ -17,7 +17,7 @@ export class MoneyPlanContainerComponent implements OnInit {
   public outcomeTotal: number;
   constructor(
     private moneyService: MoneyService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -37,7 +37,11 @@ export class MoneyPlanContainerComponent implements OnInit {
   submitChange() {
     this.isShowSlider = false;
     this.moneyService.changePlan(this.selectedTag);
-    this._snackBar.open('Thành công rồi!', '', { duration: 1000 });
+    this.snackBar.open('..... Thành công rồi! .....', '', {
+      duration: 1000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+    });
     this.calculateIncomeTotal();
     this.calculateOutcomeTotal();
   }
