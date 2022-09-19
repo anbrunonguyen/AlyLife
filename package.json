@@ -38,6 +38,7 @@
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/splash-screen": "^4.0.1",
     "@capacitor/status-bar": "4.0.1",
+    "@capacitor/toast": "^4.0.1",
     "@ionic/angular": "^6.2.5",
     "hammerjs": "^2.0.8",
     "highcharts": "^8.2.2",
