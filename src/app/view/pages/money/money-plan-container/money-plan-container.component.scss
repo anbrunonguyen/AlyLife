@@ -99,13 +99,13 @@
 
 .slider {
   position: fixed;
-  bottom: 0;
+  top: 0;
   z-index: 99;
   padding: 15px;
   width: 100vw;
   left: 0;
   background: #76927de6;
-  animation: fadeInUp 0.5s;
+  animation: fadeInDown 0.5s;
   border-radius: 20px;
 
   input {

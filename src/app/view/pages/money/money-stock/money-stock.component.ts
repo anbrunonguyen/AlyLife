@@ -35,12 +35,16 @@ export class MoneyStockComponent implements OnInit {
     });
     this.moneyService.changeStockList.subscribe(() => {
       this.stockList = this.moneyService.stockList;
-      this.snackBar.open('Cập nhật thành công', '', { duration: 1000 });
+      this.snackBar.open('Cập nhật thành công', '', {
+        duration: 1000,
+        verticalPosition: 'top',
+      });
     });
     this.moneyService.moneyServiceError.subscribe((err) => {
       if (err && err.isErr) {
         this.snackBar.open(err.message, '', {
           duration: 1000,
+          verticalPosition: 'top',
         });
       }
     });

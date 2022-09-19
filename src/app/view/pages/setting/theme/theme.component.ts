@@ -35,7 +35,10 @@ export class ThemeComponent implements OnInit {
         }
         this.colorStorage[this.variable] = this.color;
         this.store.set('Color', this.colorStorage).then();
-        this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
+        this.snackBar.open('..... Thành công rồi! .....!!', '', {
+          duration: 1000,
+          verticalPosition: 'top',
+        });
       });
     });
   }
