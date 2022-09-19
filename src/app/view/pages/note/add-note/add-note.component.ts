@@ -7,6 +7,7 @@ import { randomID } from '@core/helper/random-id';
 import { DialogData } from '@core/models/template/dialog-data.model';
 import { Tag } from '@core/models/note/tag.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-add-note',
@@ -53,10 +54,7 @@ export class AddNoteComponent implements OnInit, OnDestroy {
     formNote.value.tag = this.selectedTag;
     formNote.value.remark = this.remarkable;
     this.noteService.saveNote(formNote.value);
-    this.snackBar.open('..... Thành công rồi! .....', '', {
-      duration: 1000,
-      verticalPosition: 'top',
-    });
+    showSuccessToast();
   }
 
   mark(): void {

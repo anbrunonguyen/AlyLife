@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TagPlan } from '@core/models/money/tag-plan.model';
 import { MoneyService } from '@core/services/money.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Toast } from '@capacitor/toast';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-money-plan-container',
@@ -35,18 +35,10 @@ export class MoneyPlanContainerComponent implements OnInit {
     this.isShowSlider = true;
   }
 
-  showHelloToast = async () => {
-    await Toast.show({
-      text: 'Hello!',
-    });
-  };
   submitChange() {
     this.isShowSlider = false;
     this.moneyService.changePlan(this.selectedTag);
-    this.showHelloToast().then((result) => {
-      console.log('showHelloToast');
-    });
-
+    showSuccessToast();
     this.calculateIncomeTotal();
     this.calculateOutcomeTotal();
   }

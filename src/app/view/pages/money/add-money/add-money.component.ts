@@ -7,6 +7,7 @@ import { randomID } from '@core/helper/random-id';
 import { getToday } from '@core/helper/getToday';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-add-money',
@@ -52,10 +53,7 @@ export class AddMoneyComponent implements OnInit {
       moneyTransfer.id = 'bill_' + randomID();
       moneyTransfer.date = new Date();
       this.moneyService.transferMoney(moneyTransfer);
-      this.snackBar.open('..... Thành công rồi! .....!!', '', {
-        duration: 1000,
-        verticalPosition: 'top',
-      });
+      showSuccessToast();
       this.router.navigateByUrl('/money');
       return;
     }
@@ -63,10 +61,7 @@ export class AddMoneyComponent implements OnInit {
     moneyBill.id = 'bill_' + randomID();
     moneyBill.date = new Date();
     this.moneyService.addBillByDay(moneyBill, getToday(moneyBill.date));
-    this.snackBar.open('..... Thành công rồi! .....!!', '', {
-      duration: 1000,
-      verticalPosition: 'top',
-    });
+    showSuccessToast();
     this.router.navigateByUrl('/money');
   }
 }

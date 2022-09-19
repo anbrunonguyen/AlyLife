@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoneyService } from '@core/services/money.service';
 import { Wallet } from '@core/models/money/wallet.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-money-manage',
@@ -36,9 +37,6 @@ export class MoneyManageComponent implements OnInit {
   submitChange() {
     this.isShowSlider = false;
     this.moneyService.changePlan(this.selectedTag);
-    this.snackBar.open('..... Thành công rồi! .....', '', {
-      duration: 1000,
-      verticalPosition: 'top',
-    });
+    showSuccessToast();
   }
 }

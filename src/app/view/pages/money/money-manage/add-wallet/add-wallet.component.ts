@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { WalletTypeString } from '@core/data/wallet-type';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-add-wallet',
@@ -40,10 +41,7 @@ export class AddWalletComponent implements OnInit {
       data.loan = data.total - data.currentBalance;
     }
     this.moneyService.setListWallets(data);
-    this.snackBar.open('..... Thành công rồi! .....', '', {
-      duration: 1000,
-      verticalPosition: 'top',
-    });
+    showSuccessToast();
     this.router.navigateByUrl('/money');
   }
 }
