@@ -7,6 +7,7 @@ import { randomID } from '@core/helper/random-id';
 import { getToday } from '@core/helper/getToday';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-add-money',
@@ -44,20 +45,23 @@ export class AddMoneyComponent implements OnInit {
     if (form.invalid) {
       return;
     }
+    const data = form.value;
+    data.money = parseInt(form.value.money.replaceAll(',', ''), 10);
+
     if (this.isInTransferMode) {
-      const moneyTransfer = form.value;
+      const moneyTransfer = data;
       moneyTransfer.id = 'bill_' + randomID();
       moneyTransfer.date = new Date();
       this.moneyService.transferMoney(moneyTransfer);
-      this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
+      showSuccessToast();
       this.router.navigateByUrl('/money');
       return;
     }
-    const moneyBill = form.value;
+    const moneyBill = data;
     moneyBill.id = 'bill_' + randomID();
     moneyBill.date = new Date();
-    this.moneyService.setMoneyByDay(moneyBill, getToday(moneyBill.date));
-    this.snackBar.open('Thành công rồi!!!', '', { duration: 1000 });
+    this.moneyService.addBillByDay(moneyBill, getToday(moneyBill.date));
+    showSuccessToast();
     this.router.navigateByUrl('/money');
   }
 }

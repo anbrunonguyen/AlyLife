@@ -14,7 +14,7 @@ export class MoneyPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subcription = this.moneyService.initMoneyService.subscribe((data) => {
-      if (data.length === 0) {
+      if (data && data.length === 0) {
         this.moneyService.setListWallets({
           id: '',
           name: 'Chứng Khoán',

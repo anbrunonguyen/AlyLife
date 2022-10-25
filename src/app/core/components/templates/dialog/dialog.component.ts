@@ -1,7 +1,14 @@
 import { DialogData } from '@core/models/template/dialog-data.model';
 import { NoteService } from '@core/services/note.service';
 import { DialogService } from '@core/services/dialog.service';
-import { Component, OnInit, ViewChild, OnDestroy, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  OnDestroy,
+  ElementRef,
+} from '@angular/core';
+import { MoneyService } from '@core/services/money.service';
 
 @Component({
   selector: 'aly-dialog',
@@ -11,11 +18,15 @@ import { Component, OnInit, ViewChild, OnDestroy, ElementRef } from '@angular/co
 export class DialogComponent implements OnInit, OnDestroy {
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('dialog') dialog: ElementRef;
-  private selectItem: string;
   public data: DialogData;
-  constructor(private dialogService: DialogService, private noteService: NoteService) { }
+  private selectItem: string;
+  constructor(
+    private dialogService: DialogService,
+    private noteService: NoteService,
+    private moneyService: MoneyService
+  ) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   hideDialog(): void {
     this.overlay.nativeElement.classList.add('hide-smooth');
@@ -31,7 +42,9 @@ export class DialogComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.selectItem == undefined) return;
+    if (this.selectItem === undefined) {
+      return;
+    }
     this.noteService.tagOnSelect.next(this.selectItem);
   }
 
@@ -40,7 +53,11 @@ export class DialogComponent implements OnInit, OnDestroy {
   }
 
   confirmYes() {
-    this.noteService.deleteNote(this.data.data);
+    if (this.data.isRemoveWallet) {
+      this.moneyService.removeWallet(this.data.data);
+    } else {
+      this.noteService.deleteNote(this.data.data);
+    }
     this.hideDialog();
   }
 

@@ -1,51 +1,49 @@
-@import '../../../core/shared/scss/shared';
-
+@import "../../../core/shared/scss/shared";
 
 .avatar-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
 }
 
 .avatar-img {
-    position: relative;
-
-    .img {
-        border-radius: 50%;
-        width: $avatar-size;
-        height: $avatar-size;
-
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: $avatar-size;
+  height: $avatar-size;
+  .edit {
+    position: absolute;
+    bottom: 1px;
+    right: 30px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: rgba(171, 211, 243, 0.753);
+    padding: 2px;
+    animation: smoothShow 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .edit-icon {
+      width: 20px;
     }
-
-    .edit {
-        position: absolute;
-        bottom: 1px;
-        right: 30px;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        background: rgba(171, 211, 243, 0.753);
-        padding: 2px;
-        animation: smoothShow 0.5s;
-
-        .edit-icon {
-            width: 26px;
-        }
-    }
-
+  }
 }
 
 form {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 
-    p {
-        margin: 5px 0 10px;
-        font-size: 22px;
-    }
+  p {
+    margin: 5px 0 10px;
+    font-size: 22px;
+  }
 
-    .hint {
-        font-size: 14px;
-    }
+  .hint {
+    font-size: 14px;
+  }
 }

@@ -1,16 +1,16 @@
 import { Directive, Input, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Directive({
   selector: '[alyRoute]',
 })
 export class RouteDirective {
   @Input() route: string;
-  constructor(private router: Router) {}
+  constructor(private navCtrl: NavController) {}
 
   @HostListener('click') routeToPage() {
     setTimeout(() => {
-      this.router.navigateByUrl(this.route);
-    }, 100);
+      this.navCtrl.navigateForward(this.route);
+    }, 50);
   }
 }

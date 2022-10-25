@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TagPlan } from '@core/models/money/tag-plan.model';
 import { MoneyService } from '@core/services/money.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-money-plan-container',
@@ -17,7 +18,7 @@ export class MoneyPlanContainerComponent implements OnInit {
   public outcomeTotal: number;
   constructor(
     private moneyService: MoneyService,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -37,20 +38,22 @@ export class MoneyPlanContainerComponent implements OnInit {
   submitChange() {
     this.isShowSlider = false;
     this.moneyService.changePlan(this.selectedTag);
-    this._snackBar.open('Thành công rồi!', '', { duration: 1000 });
+    showSuccessToast();
     this.calculateIncomeTotal();
     this.calculateOutcomeTotal();
   }
 
   calculateIncomeTotal() {
-    this.incomeTotal = this.incomePlan.reduce((total, income) => {
-      return total + income.value;
-    }, 0);
+    this.incomeTotal = this.incomePlan.reduce(
+      (total, income) => total + income.value,
+      0
+    );
   }
 
   calculateOutcomeTotal() {
-    this.outcomeTotal = this.outcomePlan.reduce((total, income) => {
-      return total + income.value;
-    }, 0);
+    this.outcomeTotal = this.outcomePlan.reduce(
+      (total, income) => total + income.value,
+      0
+    );
   }
 }

@@ -13,7 +13,13 @@
 
     <!-- Greeting card -->
     <div class="greeting-card" alyTouchReact>
-      <div class="greeting-card__avatar"><img [src]="user?.avatar" /></div>
+      <div
+        class="greeting-card__avatar"
+        *ngIf="user?.avatar"
+        [ngStyle]="{'background-image': 'url(' + user?.avatar + ')'}"
+      >
+        <!-- <img [src]="covertUserAvatar(user?.avatar)" /> -->
+      </div>
       <div class="greeting-card__background">
         <div class="greeting-card__quote">
           <p class="quote">{{quote.quote}}</p>
@@ -65,13 +71,19 @@
       </div>
     </div>
 
+    <h1 class="heading">Lịch</h1>
+    <p class="lunar-calendar">Âm lịch: {{getLunarDate()}}</p>
+    <div class="calendar-container">
+      <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+    </div>
+
     <!-- Money -->
     <div class="money-container">
       <h1 class="heading">Ví tiền</h1>
       <aly-money-preview></aly-money-preview>
     </div>
 
-    <p class="version">0.9.1</p>
+    <p class="version">0.9.9</p>
   </div>
 
   <div class="navigator">
@@ -81,6 +93,10 @@
 
     <div class="nav-item" alyTouchReact alyRoute route="/note">
       <img src="assets/icon/note.svg" alt="" />
+    </div>
+
+    <div class="nav-item" alyTouchReact alyRoute route="/baby">
+      <img src="assets/icon/baby.svg" />
     </div>
 
     <div class="nav-item" alyTouchReact alyRoute route="/health">

@@ -4,11 +4,11 @@
   .balance {
     // box-shadow: none;
     background: var(--main-color);
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     box-shadow: $bubble-shadow;
 
     h2,
-    h6 {
+    h5 {
       font-weight: 400;
       margin: 0;
       text-align: center;
@@ -21,7 +21,7 @@
       font-size: 50px;
       margin-bottom: 20px;
     }
-    h6 {
+    h5 {
       font-style: italic;
     }
   }
@@ -29,11 +29,12 @@
   h5 {
     text-align: center;
   }
+
   .money-preview-detail {
     display: flex;
     justify-content: center;
     .chart-container {
-      width: 100vw;
+      width: 300px;
       position: relative;
     }
   }

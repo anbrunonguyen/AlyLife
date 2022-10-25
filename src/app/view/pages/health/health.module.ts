@@ -7,10 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { HealthPageRoutingModule } from './health-routing.module';
 
 import { HealthPage } from './health.page';
-import { ClockComponent } from './clock/clock.component';
+import { SharedModule } from '@core/shared/shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, HealthPageRoutingModule],
-  declarations: [HealthPage, ClockComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HealthPageRoutingModule,
+    SharedModule,
+  ],
+  declarations: [HealthPage],
 })
 export class HealthPageModule {}

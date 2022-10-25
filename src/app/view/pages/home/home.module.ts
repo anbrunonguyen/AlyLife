@@ -15,8 +15,8 @@ import { SharedModule } from '@core/shared/shared/shared.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
 })
-export class HomePageModule { }
+export class HomePageModule {}

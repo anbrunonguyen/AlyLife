@@ -6,6 +6,8 @@ import { FormControl } from '@angular/forms';
 // import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { ImageService } from '@core/services/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'aly-auth',
@@ -18,8 +20,8 @@ export class AuthPage implements OnInit {
   public isErr = false;
   constructor(
     private userService: UserService,
-    // private imagePicker: ImagePicker,
-    // private webview: WebView,
+    private imageService: ImageService,
+    private sanitizer: DomSanitizer,
     private store: Storage,
     private router: Router
   ) {}
@@ -43,20 +45,20 @@ export class AuthPage implements OnInit {
   onSubmit(auth: FormControl) {
     if (this.user.password !== undefined || null || '') {
       if (
-        auth.value.pass == undefined ||
+        auth.value.pass === undefined ||
         '' ||
         auth.value.pass !== this.user.password
       ) {
         this.isErr = true;
         return;
       }
-      if (auth.value.pass == this.user.password) {
+      if (auth.value.pass === this.user.password) {
         setTimeout(() => {
           this.router.navigateByUrl('/home');
         }, 100);
       }
     } else {
-      if (auth.value.name == undefined || '') {
+      if (auth.value.name === undefined || '') {
         this.isErr = true;
         return;
       }
@@ -70,15 +72,15 @@ export class AuthPage implements OnInit {
     }
   }
 
-  // picker() {
-  //   this.imagePicker.getPictures({ maximumImagesCount: 1 }).then(
-  //     (results) => {
-  //       for (var i = 0; i < results.length; i++) {
-  //         this.url = this.webview.convertFileSrc(results[i]);
-  //         this.user.avatar = this.url;
-  //       }
-  //     },
-  //     (err) => {}
-  //   );
-  // }
+  picker() {
+    this.imageService.takePicture(1000, 1000).then((image) => {
+      this.url = image.webPath;
+      this.user.avatar = this.url;
+      this.userService.updateAvatar(image.webPath);
+    });
+  }
+
+  covertUserAvatar(url: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
 }

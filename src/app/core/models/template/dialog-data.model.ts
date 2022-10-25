@@ -1,4 +1,5 @@
 export class DialogData {
-    type: string;
-    data: any;
+  type: string;
+  data: any;
+  isRemoveWallet?: boolean;
 }

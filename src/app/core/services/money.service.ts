@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { TagPlan } from './../models/money/tag-plan.model';
 import { moneyOutcomeType, moneyIncomeType } from '@core/data/money';
 import { Injectable } from '@angular/core';
@@ -128,12 +129,8 @@ export class MoneyService {
     const data = this.getInOutcomeMoneyByTag(new Date().getMonth());
     const incomeProgress = [];
     const outcomeProgress = [];
-    const outcomePlan = moneyOutcomeType.map((type) => {
-      return type.id;
-    });
-    const incomePlan = moneyIncomeType.map((type) => {
-      return type.id;
-    });
+    const outcomePlan = moneyOutcomeType.map((type) => type.id);
+    const incomePlan = moneyIncomeType.map((type) => type.id);
     Object.keys(data).map((tag, i) => {
       incomePlan.find((id) => {
         if (id === tag) {
@@ -168,6 +165,14 @@ export class MoneyService {
     data.id = 'wallet_' + randomID();
     data.transactions = [];
     this.wallets.push(data);
+    this.saveWallets();
+  }
+
+  removeWallet(id: string) {
+    const target = this.wallets.find((wallet) => wallet.id === id);
+    this.wallets.splice(this.wallets.indexOf(target), 1);
+    console.log('removeWallet', this.wallets);
+
     this.saveWallets();
   }
 
@@ -207,7 +212,7 @@ export class MoneyService {
             wallet.cash -= data.money;
             if (data.money > wallet.investmentValue) {
               wallet.currentBalance -= data.money - wallet.investmentValue;
-              this.setMoneyByDay(
+              this.addBillByDay(
                 {
                   ...data,
                   money: data.money - wallet.investmentValue,
@@ -231,13 +236,14 @@ export class MoneyService {
               reducer,
               0
             );
+
             const netValue =
               totalMoneyHadSpentOnCredit > 0
                 ? data.money - totalMoneyHadSpentOnCredit
                 : data.money;
             fromWallet.currentBalance += netValue;
 
-            this.setMoneyByDay(
+            this.addBillByDay(
               {
                 ...data,
                 money: netValue,
@@ -246,9 +252,13 @@ export class MoneyService {
               },
               getToday(data.date)
             );
-            toWallet.transactions[0].income += data.money;
+
+            if (toWallet.transactions[0]) {
+              toWallet.transactions[0].income += data.money;
+            }
           }
         }
+
         if (wallet.name === data.toWallet) {
           wallet.currentBalance += data.money;
           if (toWallet.type === WalletTypeString.CO_PHIEU) {
@@ -268,13 +278,13 @@ export class MoneyService {
     }
   }
 
-  setMoneyByDay(moneyBill: InOutcome, day = getToday()) {
+  addBillByDay(moneyBill: InOutcome, day = getToday()) {
     this.moneyBill.push(moneyBill);
     this.wallets.forEach((wallet) => {
       if (wallet.name === moneyBill.wallet) {
-        let transaction = wallet.transactions.find((bill) => {
-          return bill.dateId === day;
-        });
+        let transaction = wallet.transactions.find(
+          (bill) => bill.dateId === day
+        );
         if (transaction) {
           transaction.bill.push(moneyBill);
         } else {
@@ -314,9 +324,9 @@ export class MoneyService {
   deleteBill(moneyBill: InOutcome) {
     this.wallets.forEach((wallet) => {
       if (wallet.name === moneyBill.wallet) {
-        const transaction = wallet.transactions.find((bill) => {
-          return bill.dateId === getToday(moneyBill.date);
-        });
+        const transaction = wallet.transactions.find(
+          (bill) => bill.dateId === getToday(moneyBill.date)
+        );
         if (transaction) {
           const bill = transaction.bill.find(
             (bills) => bills.id === moneyBill.id
@@ -352,9 +362,7 @@ export class MoneyService {
     let result = [];
     this.wallets.forEach((wallet) => {
       result = result.concat(
-        wallet.transactions.filter((transaction) => {
-          return transaction.dateId === day;
-        })
+        wallet.transactions.filter((transaction) => transaction.dateId === day)
       );
     });
     return result;

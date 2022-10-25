@@ -9,6 +9,7 @@ import { pipe } from 'rxjs';
 import { Storage } from '@ionic/storage';
 import { Wallet } from '@core/models/money/wallet.model';
 import { WalletTypeString } from '@core/data/wallet-type';
+import { showSuccessToast } from '@core/helper/showToast';
 
 @Component({
   selector: 'aly-money-stock',
@@ -35,12 +36,13 @@ export class MoneyStockComponent implements OnInit {
     });
     this.moneyService.changeStockList.subscribe(() => {
       this.stockList = this.moneyService.stockList;
-      this.snackBar.open('Cập nhật thành công', '', { duration: 1000 });
+      showSuccessToast();
     });
     this.moneyService.moneyServiceError.subscribe((err) => {
       if (err && err.isErr) {
         this.snackBar.open(err.message, '', {
           duration: 1000,
+          verticalPosition: 'top',
         });
       }
     });

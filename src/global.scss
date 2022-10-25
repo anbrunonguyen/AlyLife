@@ -64,12 +64,11 @@
 }
 
 body {
-  font-family: "noticia" !important;
   color: var(--font-color);
   font-size: 16px;
-  letter-spacing: 1px;
 
   .container {
+    font-family: "noticia";
     overflow: scroll;
     height: 100vh;
     width: 100%;
@@ -78,12 +77,11 @@ body {
     background: var(--background-color);
   }
 
-  // .ion-page {
-  //   top: 18px !important;
-  // }
-
   .container::-webkit-scrollbar {
     display: none;
+  }
+  .highcharts-container {
+    width: 300px !important;
   }
 
   input,
@@ -99,15 +97,20 @@ body {
   ::ng-deep .mat-focused .mat-form-field-placeholder {
     color: var(--font-color) !important;
   }
-  --main-color: rgba(255, 255, 255, 0.12);
-  --background-color: linear-gradient(
-    to right top,
-    #051937,
-    #004d7a,
-    #008793,
-    #00bf72,
-    #a8eb12
-  );
+  // this is green theme
+  // --main-color: rgba(255, 255, 255, 0.12);
+  // --background-color: linear-gradient(
+  //   to right top,
+  //   #134a3d,
+  //   #077658,
+  //   #249683,
+  //   #00bf72,
+  //   #a8eb12
+  // );
+  --main-color: rgb(255 245 245 / 56%);
+  --background-color: rgb(255 255 255 / 86%);
+  --user-color: #e200cc;
   --font-color: black;
   --border-radius: 15px;
+  --ion-default-font: "noticia";
 }

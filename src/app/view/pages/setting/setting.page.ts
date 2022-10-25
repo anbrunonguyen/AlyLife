@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { ImagePicker } from '@ionic-native/image-picker/ngx';
-// import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { UserService } from '@core/services/user.service';
 import { User } from '@core/models/user/user.model';
-// import { Crop } from '@ionic-native/crop/ngx';
+import { ImageService } from '@core/services/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'aly-setting',
@@ -14,27 +13,29 @@ export class SettingPage implements OnInit {
   public user: User;
   public url: any;
   constructor(
-    // private imagePicker: ImagePicker,
-    // private webview: WebView,
-    private userService: UserService // private crop: Crop
+    private userService: UserService,
+    private imageService: ImageService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
     this.user = this.userService.user;
+    this.imageService.checkPermission();
   }
 
-  // picker() {
-  //   this.imagePicker.getPictures({ maximumImagesCount: 1 }).then((results) => {
-  //     for (var i = 0; i < results.length; i++) {
-  //       this.crop.crop(results[i], { quality: 75, targetHeight: 250, targetWidth: 250 })
-  //         .then(
-  //           newImage => {
-  //             this.url = this.webview.convertFileSrc(newImage);
-  //             this.userService.updateAvatar(this.url)
-  //           },
-  //           error => console.error('Error cropping image', error)
-  //         );
-  //     }
-  //   }, (err) => { });
-  // }
+  picker() {
+    this.imageService.pickImage(500, 500, 1).then((image) => {
+      this.userService.updateAvatar(image.photos[0].webPath);
+    });
+  }
+
+  takePicture() {
+    this.imageService.takePicture(1000, 1000).then((image) => {
+      this.userService.updateAvatar(image.webPath);
+    });
+  }
+
+  covertUserAvatar(url: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
 }

@@ -34,7 +34,7 @@ $user-color: #8bc34a;
     }
 
     .greeting-text__user {
-      color: $user-color;
+      color: var(--user-color);
     }
   }
 
@@ -52,11 +52,9 @@ $user-color: #8bc34a;
       position: absolute;
       top: 0px;
       right: 20px;
-
-      img {
-        border-radius: 50%;
-        width: $avatar-size;
-      }
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     .greeting-card__background {
@@ -73,7 +71,7 @@ $user-color: #8bc34a;
         padding: 12px;
         word-wrap: break-word;
         font-weight: 600;
-        font-family: dancing;
+        font-family: dancing !important;
         width: 100%;
 
         .quote {
@@ -159,6 +157,15 @@ $user-color: #8bc34a;
   .money-container {
     margin-top: $part-margin;
   }
+
+  .calendar-container {
+    border-radius: var(--border-radius);
+    background: var(--main-color);
+    box-shadow: $bubble-shadow;
+  }
+  .lunar-calendar {
+    margin-bottom: 10px;
+  }
 }
 
 // Common class
@@ -169,16 +176,17 @@ $user-color: #8bc34a;
 .version {
   font-size: 12px;
   margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 .navigator {
   position: fixed;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 60vw;
   height: 40px;
   background: #fbfbfb;
-  bottom: 20px;
+  bottom: 35px;
   left: 20vw;
   z-index: 9999;
   border-radius: 20px;

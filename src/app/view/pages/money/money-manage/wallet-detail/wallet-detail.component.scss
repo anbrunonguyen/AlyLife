@@ -3,7 +3,6 @@
 .wallet-card {
   background: var(--main-color);
   padding: 15px;
-  overflow: hidden;
   font-family: "noticia" !important;
   margin: 20px 0;
   box-shadow: none;
@@ -32,7 +31,7 @@
     .in {
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
-      background: #61d06133;
+      background: rgb(7 214 7 / 62%);
       padding: 5px 15px;
       font-size: 18px;
     }
@@ -41,7 +40,7 @@
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       padding: 5px 15px;
-      background: #ff41417a;
+      background: rgb(255 65 65 / 49%);
       font-size: 18px;
       text-align: end;
     }
@@ -51,6 +50,36 @@
       color: rgb(223, 56, 56);
       font-weight: bold;
       font-size: 20px;
+    }
+  }
+  .edit {
+    position: absolute;
+    top: -10px;
+    right: 35px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: rgba(171, 211, 243, 0.753);
+    padding: 2px;
+    animation: smoothShow 0.5s;
+    .edit-icon {
+      width: 26px;
+    }
+  }
+
+  .delete {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: rgba(171, 211, 243, 0.753);
+    padding: 2px;
+    animation: smoothShow 0.5s;
+
+    .delete-icon {
+      width: 26px;
     }
   }
 }

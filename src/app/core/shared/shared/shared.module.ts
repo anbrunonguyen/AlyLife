@@ -15,6 +15,8 @@ import { CommonFormComponent } from '@core/components/templates/common-form/comm
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MoneyChartComponent } from '@core/components/money-chart/money-chart.component';
+import { GoBackDirective } from '@core/directives/go-back.directive';
+import { NumberPipe } from '@core/pipe/numberPipe.pipe';
 
 const components = [
   NoteOverviewComponent,
@@ -29,6 +31,8 @@ const components = [
   MoneyPreviewComponent,
   ChangePlanDirective,
   MoneyChartComponent,
+  GoBackDirective,
+  NumberPipe,
 ];
 
 @NgModule({
