@@ -47,6 +47,7 @@ export class AddMoneyComponent implements OnInit {
     }
     const data = form.value;
     data.money = parseInt(form.value.money.replaceAll(',', ''), 10);
+    // console.log(data.money);
 
     if (this.isInTransferMode) {
       const moneyTransfer = data;

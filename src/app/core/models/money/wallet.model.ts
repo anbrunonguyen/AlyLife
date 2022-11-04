@@ -14,6 +14,21 @@ export interface Wallet {
   cash?: number;
   investmentValue?: number;
 }
+
+export interface Health {
+  id: string;
+  name: string;
+  currentBalance: number;
+  type: string;
+  detail?: string;
+  transactions: Transaction[];
+  margin?: number;
+  notMine?: number;
+  grossBalance?: number;
+  loan?: number;
+  cash?: number;
+  investmentValue?: number;
+}
 export interface WalletDataFromDB {
   data?: string;
   username?: string;

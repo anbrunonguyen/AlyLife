@@ -1,5 +1,64 @@
 <ion-content>
   <div class="container">
     <h1 class="heading" alyGoBack><i class="icon icon-back"></i>Sức Khỏe</h1>
+
+    <form class="add-money-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="input-container">
+        <div class="icon"><img src="assets/icon/money-total.svg" alt="" /></div>
+        <div class="input">
+          <mat-form-field>
+            <mat-label>Họ và tên</mat-label>
+            <input
+              matInput
+              placeholder="Nguyễn Văn A"
+              ngModel
+              name="name"
+              required
+              type="text"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-container">
+        <div class="icon"><img src="assets/icon/wallet.svg" alt="" /></div>
+        <div class="input">
+          <mat-form-field>
+            <mat-label>Ngày sinh</mat-label>
+            <input matInput ngModel name="date" type="text" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-container">
+        <div class="icon"><img src="assets/icon/wallet.svg" alt="" /></div>
+        <div class="input">
+          <mat-form-field>
+            <mat-label>Giới tính</mat-label>
+            <mat-select name="gender" ngModel required>
+              <mat-option *ngFor="let gender of type" [value]="gender.name">
+                {{ gender.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="input-container">
+        <div class="icon"><img src="assets/icon/interest.svg" alt="" /></div>
+        <div class="input">
+          <mat-form-field class="example-full-width">
+            <mat-label>Thông tin thêm</mat-label>
+            <textarea
+              matInput
+              placeholder
+              name="detail"
+              ngModel
+              required
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button alyTouchReact class="aly-btn" type="submit">Tạo</button>
+      </div>
+    </form>
   </div>
 </ion-content>

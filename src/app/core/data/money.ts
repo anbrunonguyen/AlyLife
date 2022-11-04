@@ -22,3 +22,8 @@ export const moneyOutcomeType = [
   { name: 'Tín dụng', id: 'credit', icon: 'assets/icon/credit.svg' },
   { name: 'Khác', id: 'outcome', icon: 'assets/icon/outcome-other.svg' },
 ];
+
+export const gender = [
+  { name: 'Nam', id: 'nam', icon: 'assets/icon/salary.svg' },
+  { name: 'Nữ', id: 'nu', icon: 'assets/icon/reward.svg' },
+];
