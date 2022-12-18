@@ -450,12 +450,40 @@ export class MoneyService {
     this.storage.ready().then(() => {
       moneyIncomeType.forEach((income) => {
         this.storage.get('planIncome' + income.id).then((data) => {
-          this.incomePlan.push(data);
+          if (data) {
+            this.incomePlan.push(data);
+          } else {
+            this.storage
+              .set('planIncome' + income.id, {
+                id: income.id,
+                name: income.name,
+                value: 1000000,
+                type: 'income',
+                icon: income.icon,
+              })
+              .then((incomeData) => {
+                this.incomePlan.push(incomeData);
+              });
+          }
         });
       });
       moneyOutcomeType.forEach((outcome) => {
         this.storage.get('planOutcome' + outcome.id).then((data) => {
-          this.outcomePlan.push(data);
+          if (data) {
+            this.outcomePlan.push(data);
+          } else {
+            this.storage
+              .set('planOutcome' + outcome.id, {
+                id: outcome.id,
+                name: outcome.name,
+                value: 100000,
+                type: 'outcome',
+                icon: outcome.icon,
+              })
+              .then((outcomeData) => {
+                this.outcomePlan.push(outcomeData);
+              });
+          }
         });
       });
     });

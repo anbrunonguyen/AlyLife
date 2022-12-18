@@ -17,8 +17,9 @@ export const moneyOutcomeType = [
   },
   { name: 'Sức khỏe', id: 'khoe', icon: 'assets/icon/outcome-healthy.svg' },
   { name: 'Đi lại', id: 'dilai', icon: 'assets/icon/transport.svg' },
-  { name: 'Kinh doanh', id: 'kinhdoanh', icon: 'assets/icon/sell.svg' },
+  { name: 'Kinh doanh', id: 'kinhdoand', icon: 'assets/icon/sell.svg' },
   { name: 'Hóa đơn', id: 'bill', icon: 'assets/icon/money-history.svg' },
   { name: 'Tín dụng', id: 'credit', icon: 'assets/icon/credit.svg' },
   { name: 'Khác', id: 'outcome', icon: 'assets/icon/outcome-other.svg' },
+  { name: 'Cho con', id: 'baby', icon: 'assets/icon/baby.svg' },
 ];
